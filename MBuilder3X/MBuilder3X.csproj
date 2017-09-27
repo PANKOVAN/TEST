@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>D:\Projects\WebixProjects\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\Projects\WebixProjects\</OutputPath>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="App\Login.js" />
+    <Content Include="App\Main.js" />
+    <Content Include="Model\Model.js" />
+    <Content Include="Templates\Docs\default.html" />
+    <Content Include="Templates\Docs\depruk.html" />
+    <Content Include="Templates\Docs\dor.html" />
+    <Content Include="Templates\Docs\ntd.html" />
+    <Content Include="Templates\Docs\nti.html" />
+    <Content Include="Templates\Docs\patent.html" />
+    <Content Include="Templates\Docs\price.html" />
+    <Content Include="Templates\Docs\serialpublishing.html" />
+    <Content Include="Templates\Docs\thesises.html" />
+    <Content Include="Templates\Docs\translation.html" />
+    <Content Include="Templates\Docs\_docs.html" />
+    <Content Include="Templates\Docs\bibliographiclist.html" />
+    <Content Include="Templates\Docs\books.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonCoreLibrary\MJsonCoreLibrary.csproj" />
+    <ProjectReference Include="..\MEDMCoreLibrary\MEDMCoreLibrary.csproj" />
+    <ProjectReference Include="..\MFuncCoreLibrary\MFuncCoreLibrary.csproj" />
+  </ItemGroup>
+
+</Project>

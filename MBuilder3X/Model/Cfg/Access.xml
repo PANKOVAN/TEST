@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cfg>
+  <!--Типы сущностей-->
+  <MEntityType>
+    <!--Пользователь-->
+    <Usr header="Пользователь">
+      <PropTypes>IsAdmin</PropTypes>
+    </Usr>
+    <!--Роль-->
+    <Role header="Роль">
+      <PropTypes>IsAdmin;IsAdmin2;IsTranslator;IsEditor;IsAnyZone;IsCompleter;IsCompleter2</PropTypes>
+    </Role>
+  </MEntityType>
+  <!--Типы свойств-->
+  <MPropType>
+    <IsAdmin      header="Администратор" type="bool" isentity="true" />
+    <IsAdmin2     header="Помошник администратора" type="bool" isentity="true" />
+    <IsTranslator header="Продвинутый" type="bool" isentity="true" />
+    <IsEditor     header="Разрешена правка" type="bool" isentity="true" />
+    <IsAnyZone    header="Любая зона" type="bool" isentity="true" />
+    <IsCompleter  header="Утверждение" type="bool" isentity="true" />
+    <IsCompleter2 header="Утверждение 2" type="bool" isentity="true" />
+  </MPropType>
+  <!--Типы связей-->
+  <MRelationType>
+    <UsrRole header="Роль пользователя"/>
+  </MRelationType>
+</cfg>

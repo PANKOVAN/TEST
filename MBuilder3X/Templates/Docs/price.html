@@ -1,0 +1,20 @@
+﻿<div>
+    <b>
+        {#name}
+        {#translationName@pref=&nbsp;/&nbsp;}
+    </b>
+    <span class="text-muted">
+        {#informationReferingTitle@pref=&nbsp;-&nbsp;@first=true}
+        {#publishers}{#placePublishingCity@next=,&nbsp;}
+        {#datePublishing@next=,&nbsp;}
+        {#pages@next=,&nbsp;}
+        {#pictures@next=,&nbsp;}
+        {#equippingReferences@next=,&nbsp;}
+    </span>
+</div>
+<div class="text-justify">
+    {#abstract}
+</div>
+<div class="text-muted" style="margin-top:4px; margin-bottom:4px">
+    {#cipherKeepingDocument@pref=Шифр хранения:&nbsp;}
+</div>

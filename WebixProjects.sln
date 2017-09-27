@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MBuilder3X", "MBuilder3X\MBuilder3X.csproj", "{28A10585-7348-41D1-9175-92A79AAF0048}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{6886ACCD-1BD6-44F9-AB72-C787C61442E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MEDMCoreLibrary", "MEDMCoreLibrary\MEDMCoreLibrary.csproj", "{49327553-485A-494C-BCFC-29CE859F0582}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MFuncCoreLibrary", "MFuncCoreLibrary\MFuncCoreLibrary.csproj", "{369886DB-9721-41C7-B0FC-8DC85F3424DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MJsonCoreLibrary", "JsonCoreLibrary\MJsonCoreLibrary.csproj", "{E51A707A-FB92-4FAD-BF8C-C769850A80D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MBuilder3XModel", "MBuilder3XModel\MBuilder3XModel.csproj", "{B8BC8019-1646-4650-AD93-283DA72918B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RZDMonitoring", "RZDMonitoring\RZDMonitoring.csproj", "{85FF6A22-B336-4EF1-BBC8-F929C7DB5D36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28A10585-7348-41D1-9175-92A79AAF0048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28A10585-7348-41D1-9175-92A79AAF0048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28A10585-7348-41D1-9175-92A79AAF0048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28A10585-7348-41D1-9175-92A79AAF0048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49327553-485A-494C-BCFC-29CE859F0582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49327553-485A-494C-BCFC-29CE859F0582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49327553-485A-494C-BCFC-29CE859F0582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49327553-485A-494C-BCFC-29CE859F0582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369886DB-9721-41C7-B0FC-8DC85F3424DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369886DB-9721-41C7-B0FC-8DC85F3424DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369886DB-9721-41C7-B0FC-8DC85F3424DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369886DB-9721-41C7-B0FC-8DC85F3424DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E51A707A-FB92-4FAD-BF8C-C769850A80D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E51A707A-FB92-4FAD-BF8C-C769850A80D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E51A707A-FB92-4FAD-BF8C-C769850A80D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E51A707A-FB92-4FAD-BF8C-C769850A80D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8BC8019-1646-4650-AD93-283DA72918B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8BC8019-1646-4650-AD93-283DA72918B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8BC8019-1646-4650-AD93-283DA72918B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8BC8019-1646-4650-AD93-283DA72918B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85FF6A22-B336-4EF1-BBC8-F929C7DB5D36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85FF6A22-B336-4EF1-BBC8-F929C7DB5D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85FF6A22-B336-4EF1-BBC8-F929C7DB5D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85FF6A22-B336-4EF1-BBC8-F929C7DB5D36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49327553-485A-494C-BCFC-29CE859F0582} = {6886ACCD-1BD6-44F9-AB72-C787C61442E9}
+		{369886DB-9721-41C7-B0FC-8DC85F3424DE} = {6886ACCD-1BD6-44F9-AB72-C787C61442E9}
+		{E51A707A-FB92-4FAD-BF8C-C769850A80D6} = {6886ACCD-1BD6-44F9-AB72-C787C61442E9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4030F808-8BD9-4206-B594-70C6C1F8FC9D}
+	EndGlobalSection
+EndGlobal

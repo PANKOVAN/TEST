@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MBuilder3XModel": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Projects\\CoreProjects\\RZDMonitoring\\Model\""
+    }
+  }
+}

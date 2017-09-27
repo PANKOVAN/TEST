@@ -1,0 +1,35 @@
+{
+  "_type": "MJsonData",
+  "data": [
+    {
+      "_type": "MClsType",
+      "header": "Системный",
+      "name": "Sys",
+      "id": "Sys"
+    },
+    {
+      "_type": "MClsType",
+      "header": "Пользователи",
+      "name": "Usr",
+      "id": "Usr"
+    },
+    {
+      "_type": "MClsType",
+      "header": "Роли",
+      "name": "Role",
+      "id": "Role"
+    },
+    {
+      "_type": "MClsType",
+      "header": "Проекты",
+      "name": "Prj",
+      "id": "Prj"
+    },
+    {
+      "_type": "MClsType",
+      "id": ""
+    }
+  ],
+  "dataMode": "list",
+  "dic": {}
+}

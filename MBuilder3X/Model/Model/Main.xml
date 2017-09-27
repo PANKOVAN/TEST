@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Атрибуты класса
+
+- name - имя класса
+- header - название
+- description - описание
+- baseid - имя базового класса
+
+Атрибуты свойства
+
+- name - имя класса
+- header - название
+- description - описание
+- type - тип данных:
+  string - строка 
+  long - целое(64)
+  int - целое(32)
+  short - целое(16)
+  byte - целое(8)
+  guid - GUID
+  float
+  decimal
+  money
+  date 
+  bool 
+  ref 
+  cfg,
+  enum
+  list
+  slist
+  dic
+  sdic
+  ldic
+  props
+- length - модификатор длины
+- dec - число знаков после точки
+- refid - тип ссылки (класс на которой ссылается)
+- reftype - тип связи (каскад, запрет)
+- jsonignore - добавлять аттрибут jsonignore или нет
+- readonly - только чтение
+- virtual - виртуальное (вычисляемое) свойство такое свойство не хранится в базе
+
+  
+    
+-->
+<project name="MBuilderModel" header="MBuilder">
+  <!--Классы базы данных--> 
+  <classes>
+    <!--Сущность-->
+    <class name="MEntity" header="Сущность" baseid="MEDMIdObj">
+      <prop name="GID"            type="guid"     header="Глобальный ID" jsonignore="1" />
+      <prop name="EntityType"     type="cfg"      header="Тип сущности" refid="MEntityType" reftype="none"/>
+      <prop name="Cls"            type="ref"      header="Класс" refid="MCls" reftype="restrict" />
+      <prop name="Prj"            type="string"   header="Код проекта"  length="255"/>
+      <prop name="Code"           type="string"   header="Код"          length="255"/>
+      <prop name="Name"           type="string"   header="Наименование" length="255"/>
+      <prop name="Description"    type="string"   header="Описание"/>
+      <prop name="Rem"            type="string"   header="Примечания"/>
+      <prop name="Props"          type="props"    header="Свойства"/>
+      <prop name="Status"         type="int"      header="Статусы"/>
+      <prop name="Flags"          type="int"      header="Признаки"/>
+      <prop name="Arts"           type="list"     header="Список статей" refid="MArt"/>
+      <prop name="IsPin"          type="bool"     header="Избранная сущность" virtual="1"/>
+    </class>
+    <!--Классификатор-->
+    <class name="MCls" header="Классификатор" baseid="MEDMIdObj">
+      <prop name="GID"            type="guid"     header="Глобальный ID" jsonignore="1" />
+      <prop name="ClsType"        type="cfg"      header="Тип классификатора" refid="MClsType" reftype="none"/>
+      <prop name="Parent"         type="ref"      header="Класс" refid="MCls" reftype="restrict" />
+      <prop name="Code"           type="string"   header="Код"          length="255"/>
+      <prop name="Name"           type="string"   header="Наименование" length="255"/>
+      <prop name="Description"            type="string"   header="Описание"/>
+      <prop name="Rem"            type="string"   header="Примечания"/>
+      <prop name="Props"          type="props"    header="Свойства"/>
+      <prop name="webix_kids"    type="bool"     header="Есть дети" virtual="1"/>
+    </class>
+    <!--Ревизия-->
+    <class name="MRevision" header="Ревизия" baseid="MEDMIdObj">
+      <prop name="GID"            type="guid"     header="Глобальный ID" jsonignore="1" />
+      <prop name="Revision"       type="string"   header="Номер ревизии"  length="255"/>
+      <prop name="RevisionEntity" type="ref"      header="Описатель ревизии" refid="MEntity" reftype="restrict" entitytype="REV" />
+      <prop name="ChildEntity"    type="ref"      header="Дочерняя cущноcть" refid="MEntity" reftype="restrict" entitytype="*" />
+      <prop name="MasterEntity"   type="ref"      header="Главная сущноcть" refid="MEntity" reftype="restrict" entitytype="*" />
+    </class>
+    <!--Каталог-->
+    <class name="MRelation" header="Каталог" baseid="MEDMIdObj">
+      <prop name="GID"            type="guid"     header="Глобальный ID" jsonignore="1" />
+      <prop name="RelationType"   type="cfg"      header="Тип связи"  refid="MRelationType" reftype="none"/>
+      <prop name="Owner"          type="ref"      header="Cущноcть владелец" refid="MEntity" reftype="cascade" entitytype="*" />
+      <prop name="Parent"         type="ref"      header="Родительская cущноcть" refid="MEntity" reftype="cascade" entitytype="*" />
+      <prop name="Child"          type="ref"      header="Дочерняя сущноcть" refid="MEntity" reftype="cascade" entitytype="*" />
+      <prop name="Index"          type="int"      header="Индекс"/>
+      <prop name="Group"          type="int"      header="Номер группы"/>
+      <prop name="Change"         type="int"      header="Номер взаимозаменяемости"/>
+      <prop name="Flags"          type="int"      header="Признаки"/>
+    </class>
+    <!--Статус-->
+    <!--
+    Предопределенные статусы
+    0x0001 - новая
+    0x0002 - вета версия
+    
+    0x0010 - готова
+    0x0020 - утверждена
+    0x0040 - подтвеждена
+    
+    0x0100 - захвачена для правки
+    0x0200 - выставлены замечания
+    0x0400 - оттранслирована     
+    0x0800 - ошибки трансляции
+    
+    0x1000 - пользовательский 1
+    0x2000 - пользовательский 2
+    0x4000 - пользовательский 3
+    0x8000 - пользовательский 4
+    -->
+    <class name="MStatus" header="Статус" baseid="MEDMIdObj">
+      <prop name="Entity"         type="ref"      header="Cущноcть" refid="MEntity" reftype="cascade" entitytype="*" />
+      <prop name="Status"         type="cfg"      header="Статус"  refid="MStatusType" reftype="none"/>
+      <prop name="User"           type="ref"      header="Пользователь" refid="MEntity" reftype="restrict" entitytype="USR" />
+      <prop name="Date"           type="date"     header="Дата"/>
+      <prop name="Rem"            type="string"   header="Примечания"/>
+    </class>
+    <!--Статья-->
+    <class name="MArt" header="Статья" baseid="MEDMIdObj">
+      <prop name="GID"            type="guid"     header="Глобальный ID" jsonignore="1" />
+      <prop name="ArtType"        type="cfg"      header="Тип статьи"  refid="MArtType" reftype="none"/>
+      <prop name="Entity"         type="ref"      header="Cущноcть" refid="MEntity" reftype="cascade" entitytype="*" />
+      <prop name="BaseArt"        type="ref"      header="Базовая статья" refid="MArt" reftype="cascade" />
+      <prop name="FileName"       type="string"   header="Имя файла" length="255"/>
+      <prop name="Type"           type="string"   header="Тип файла(расширение)" length="32"/>
+      <prop name="Vids"           type="string"   header="Виды" length="255"/>
+      <prop name="Flags"          type="int"      header="Признаки"/>
+      <prop name="Index"          type="int"      header="Индекс"/>
+      <prop name="Length"         type="int"      header="Длина"/>
+      <prop name="Version"        type="int"      header="Версия" jsonignore="1"/>
+      <prop name="Props"          type="props"    header="Свойства"/>
+    </class>
+    <!--Журнал-->
+    <class name="MLog" header="Журнал" baseid="MEDMIdObj">
+
+    </class>
+    
+    </classes>
+  <!--Классы конфигурации-->
+  <classes>
+    <class name="MCfgType" header="Базовый класс для конфигурации"  type="baseclass" tostring="[{Name}] {Header}" baseid="MEDMCfgObj">
+      <prop name="Header"         type="string"   header="Наименование"/>
+      <prop name="Description"    type="string"   header="Описание"/>
+      <prop name="Rem"            type="string"   header="Примечания"/>
+      <prop name="Icon"           type="string"   header="Иконка"/>
+      <prop name="IsSystem"       type="bool"     header="Системный тип"/>
+    </class>
+    <class name="MClsType" header="Тип классификатора" baseid="MCfgType"  type="cfg">
+    </class>
+    <class name="MEntityType" header="Тип сущности" baseid="MCfgType" type="cfg">
+      <prop name="GroupHeader"    type="string"   header="Групповое наименование"/>
+      <prop name="NewHeader"      type="string"   header="Новое наименование"/>
+      <prop name="ViewerType"     type="cfg"      header="Вьювер" refid="MViewerType"/>
+      <prop name="IsNotExpand"    type="bool"     header="Не раскрывать в дереве"/>
+      <prop name="IsGroupChilds"  type="bool"     header="Группировать содержимое по типу"/>
+      <prop name="IsDoubleChilds" type="bool"     header="Разрешать одинаковые сущности среди детей"/>
+      <prop name="IsHideCode"     type="bool"     header="Скрывать код"/>
+      <prop name="PropTypes"      type="list"     header="Список разрешенных типов свойств" refid="MPropType"/>
+    </class>
+    <class name="MRelationType" header="Тип связи" baseid="MCfgType"  type="cfg">
+      <prop name="GroupHeader"    type="string"   header="Групповое наименование"/>
+      <prop name="NewHeader"      type="string"   header="Новое наименование"/>
+      <prop name="PropTypes"      type="list"     header="Список разрешенных типов свойств" refid="MPropType"/>
+      <prop name="OwnerTypes"     type="list"     header="Список разрешенных типов сущностей владельцев" refid="MEntityType"/>
+      <prop name="ChildTypes"     type="list"     header="Список разрешенных типов сущностей детей" refid="MEntityType"/>
+    </class>
+    <class name="MArtType" header="Тип статьи" baseid="MCfgType"  type="cfg">
+      <prop name="GroupHeader"    type="string"   header="Групповое наименование"/>
+      <prop name="NewHeader"      type="string"   header="Новое наименование"/>
+      <prop name="PropTypes"      type="list"     header="Список разрешенных типов свойств" refid="MPropType"/>
+    </class>
+    <class name="MPropType" header="Тип свойства" baseid="MCfgType"  type="cfg">
+      <prop name="Type"       type="enum"     header="Тип данных" refid="MPropValueType"/>
+      <prop name="Def"        type="string"   header="Значение поумолчанию"/>
+      <prop name="IsReadOnly" type="bool"     header="Только для чтения"/>
+      <prop name="IsHide"     type="bool"     header="Скрытое свойство"/>
+      <prop name="IsBuilder"  type="bool"     header="Показывать только в MBuilder"/>
+      <prop name="IsEntity"   type="bool"     header="Свойство сущности"/>
+      <prop name="IsRelation" type="bool"     header="Свойство положения"/>
+      <prop name="IsArt"      type="bool"     header="Свойство статьи"/>
+      <prop name="DefUnit"    type="ref"      header="Единица измерения по умолчанию" refid="MUnitType"/>
+      <prop name="Units"      type="list"     header="Список единиц измерения" refid="MUnitType"/>
+      <prop name="Editor"     type="list"     header="Тип редактор" refid="MEditType"/>
+    </class>
+    <class name="MPropValueType" header="Тип значения" type="enum" baseid="MCfgType" >
+      <prop name="STRING"         header="Строка" />
+      <prop name="INT"            header="Целое" />
+      <prop name="BOOL"           header="Булевское" />
+    </class>
+    <class name="MStatusType" header="Тип статуса" baseid="MCfgType"  type="cfg">
+      <prop name="Mask"       type="int"     header="Маска статуса"/>
+      <prop name="ClearMask"  type="int"     header="Маска очистки"/>
+    </class>
+    <class name="MUnitType" header="Тип единицы измерения" baseid="MCfgType"  type="cfg">
+    </class>
+    <class name="MViewerType" header="Тип просмотрщика" baseid="MCfgType"  type="cfg">
+    </class>
+    <class name="MEditType" header="Тип просмотрщика" baseid="MCfgType"  type="cfg">
+    </class>
+  </classes>
+  <!--Дополнительные классы-->
+  <classes>
+    <class name="MPassword" header="Пароль пользователя" baseid="MEDMNameObj">
+      <prop Name="PassCode" header="Код" type="int"></prop>
+    </class>
+  </classes>
+
+
+</project>

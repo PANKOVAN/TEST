@@ -1,0 +1,26 @@
+﻿<div class="text-muted" style="margin-top:4px; margin-bottom:4px">
+    {#individualAuthor}
+</div>
+<div>
+    <span>
+        <b>{#name}</b>
+        {#translationName@pref=&nbsp;/&nbsp;}
+        {#informationReferingTitle@pref=&nbsp;-&nbsp;}
+        <span class="text-muted">
+            {#placePublishingCity@first=true}
+            {#publishers@next=,}
+            {#datePublishing@next=,}
+            {#pages@next=,}
+            {#pictures@next=,}
+            {#equippingReferences@next=,}
+            {#thatPartMuchthat@pref=Том:&nbsp;@next=,}
+            {#codeISBN@pref=Код&nbsp;ISBN:&nbsp;@next=,}
+        </span>
+    </span>
+</div>
+<div class="text-justify">
+    {#abstract}
+</div>
+<div class="text-muted" style="margin-top:4px; margin-bottom:4px">
+    {#cipherKeepingDocument@pref=Шифр хранения:&nbsp;}
+</div>

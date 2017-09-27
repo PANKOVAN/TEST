@@ -1,0 +1,253 @@
+﻿.login-bg {
+    background-color: lightblue
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: lightgray;
+}
+
+.main-bar {
+    background-color: #25567B !important;
+    color: #FFB673 !important;
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+.main-but .webix_img_btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+    background-color: #3F92D2;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.page-but .webix_img_btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #3F92D2;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.tool-but .webix_img_btn {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+
+
+.main-popup-menu {
+    border-width: 0px !important;
+}
+
+.webix_layout_toolbar {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+
+.page-title .webix_el_label {
+    font-size: 28px;
+}
+
+.section-title {
+    font-size: 16px;
+}
+
+.section-default {
+    background-color: #fafafa !important;
+}
+.section-filter {
+    background-color: rgba(94, 165, 165, 0.3) !important;
+}
+.section-data {
+    background-color: rgba(105, 122, 170, 0.3) !important;
+}
+
+
+.item-code {
+    font-weight: bold;
+    padding-right: 8px !important;
+}
+
+.item-name {
+    padding-right: 8px !important;
+}
+
+.item-description {
+    white-space: normal !important;
+    color: gray;
+    font-size: smaller;
+}
+
+
+
+/*
+.page-filter {
+    background-color: #f0f0f0;
+}
+
+.webix_win_head .page-title {
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    background-color: coral !important;
+    background-image: none;
+}
+
+    .webix_win_head .page-title .webix_el_label {
+        color: white;
+    }
+
+
+.section-bar {
+}
+
+.section-title {
+}
+
+
+    .section-title .webix_el_label {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        font-stretch: condensed;
+        color: lightslategray;
+    }
+
+.top-bar {
+}
+
+    .top-bar .webix_icon_btn {
+    }
+
+.bottom-bar {
+}
+
+
+.item {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-stretch: condensed;
+    padding: 8px;
+}
+
+    .item td {
+        vertical-align: top;
+    }
+
+
+.item-tree-description {
+    white-space: normal !important;
+    color: lightgray;
+    font-size: smaller;
+}
+
+
+.item-ispin-false {
+    transform: scale(0.5, 0.5) rotate(45deg);
+}
+
+
+.webix_selected {
+    background-color: #ffdb8f !important;
+    color: #1e2022 !important;
+}
+.webix_tree_close {
+    height: 22px !important;
+}
+
+.webix_tree_open {
+    height: 22px !important;
+}
+
+.webix_tree_folder {
+    height: 22px !important;
+}
+
+.webix_tree_folder_open {
+    height: 22px !important;
+}
+
+.webix_tree_file {
+    height: 22px !important;
+}
+
+.webix_tree_none {
+    height: 22px !important;
+}
+
+.webix_tree_branch_1 .item-tree-description {
+    margin-left: 42px;
+}
+
+.webix_tree_branch_2 .item-tree-description {
+    margin-left: 60px;
+}
+
+.webix_tree_branch_3 .item-tree-description {
+    margin-left: 80px;
+}
+
+.webix_tree_branch_4 .item-tree-description {
+    margin-left: 100px;
+}
+
+.webix_tree_branch_5 .item-tree-description {
+    margin-left: 120px;
+}
+
+.webix_tree_branch_6 .item-tree-description {
+    margin-left: 140px;
+}
+
+.webix_tree_branch_7 .item-tree-description {
+    margin-left: 160px;
+}
+
+.webix_tree_branch_8 .item-tree-description {
+    margin-left: 180px;
+}
+    
+
+.webix_layout_toolbar {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+.webix_view.webix_form {
+    background-color:transparent !important;
+}
+
+.webix_tree_item.webix_selected {
+    background-size: 100% 100% !important;
+    background-position: 0 0 !important;
+    color: #1e2022;
+    background: #ffdb8f;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#ffebc2),color-stop(100%,#ffdb8f)) !important;
+    background-image: -webkit-linear-gradient(#ffebc2,#ffdb8f) !important;
+    background-image: -moz-linear-gradient(#ffebc2,#ffdb8f) !important;
+    background-image: -ms-linear-gradient(top,#ffebc2,#ffdb8f) !important;
+    background-image: -o-linear-gradient(top,#ffebc2,#ffdb8f) !important
+}
+
+    .webix_tree_item.webix_selected span {
+        padding: 0px 10px 0px 4px !important;
+        margin-left: 0px !important;
+        background-size: 100% 100% !important;
+        background-position: 0 0 !important;
+        color: #1e2022;
+        background: #ffdb8f;
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#ffebc2),color-stop(100%,#ffdb8f)) !important;
+        background-image: -webkit-linear-gradient(#ffebc2,#ffdb8f) !important;
+        background-image: -moz-linear-gradient(#ffebc2,#ffdb8f) !important;
+        background-image: -ms-linear-gradient(top,#ffebc2,#ffdb8f) !important;
+        background-image: -o-linear-gradient(top,#ffebc2,#ffdb8f) !important
+    }
+*/

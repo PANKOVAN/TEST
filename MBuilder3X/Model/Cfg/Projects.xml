@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cfg>
+  <!--Типы сущностей-->
+  <MEntityType>
+    <!--Проект-->
+    <Prj header="Проект">
+    </Prj>
+  </MEntityType>
+  <!--Типы связей-->
+  <MRelationType>
+    <UsrPrj header="Проекты пользователя"/>
+  </MRelationType>
+</cfg>

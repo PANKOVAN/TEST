@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<project name="RZDMonitoringModel" header="Автоматизированная система поиска, обработки и хранения информаци по основным направлениям деятельности ОАО РЖД">
+  <!--Классы базы данных--> 
+  <classes>
+    <!--Архив ссылок-->
+    <class name="MRef" header="Архив ссылок" baseid="MEDMIdObj">
+      <prop name="Url"            type="string"   header="Код"          length="1024"/>
+      <prop name="Header"         type="string"   header="Наименование" length="1024"/>
+      <prop name="WriteDate"      type="date"     header="Дата записи"/>
+      <prop name="WriteUser"      type="ref"      header="Кто записал" refid="MUser" reftype="restrict" />
+      <prop name="WriteFind"      type="ref"      header="Настройка поиска" refid="MFind" reftype="restrict" />
+      <prop name="DisabledDate"   type="date"     header="Дата закрытия"/>
+      <prop name="DisabledUser"   type="ref"      header="Кто закрыл" refid="MUser" reftype="restrict" />
+    </class>
+    <!--Настройки поиcка-->
+    <class name="MFind" header="Классификатор" baseid="MEDMIdObj">
+      <prop name="Header"         type="string"   header="Наименование" length="1024"/>
+      <prop name="Props"          type="string"   header="Свойства" />
+      <prop name="OwnUser"        type="ref"      header="Владелец" refid="MUser" reftype="restrict" />
+      <prop name="WriteDate"      type="date"     header="Дата записи"/>
+      <prop name="IsEnabled"      type="bool"     header="Разрешена"/>
+      <prop name="RunDate"        type="date"     header="Дата последнего поиска"/>
+    </class>
+    <!--Архив НТИ-->
+    <class name="MArt" header="Архив НТИ" baseid="MEDMIdObj">
+      <prop name="Ref"            type="ref"      header="Архив ссылок" refid="MRef" reftype="cascade" />
+      <prop name="Header"         type="string"   header="Наименование" length="1024"/>
+      <prop name="Short"          type="string"   header="Аннотациция" />
+      <prop name="Text"           type="string"   header="Текст" />
+      <prop name="WriteDate"      type="date"     header="Дата записи"/>
+      <prop name="WriteUser"      type="ref"      header="Кто записал" refid="MUser" reftype="restrict" />
+      <prop name="IsReady"        type="bool"     header="Готово"/>
+      <prop name="Language"       type="ref"      header="Язык" refid="MLang" reftype="restrict" />
+    </class>
+    <!--Архив PDF-->
+    <class name="MPdf" header="Архив PDF" baseid="MEDMIdObj">
+      <prop name="Ref"            type="ref"      header="Архив НТИ" refid="MArt" reftype="cascade" />
+      <prop name="Type"           type="string"   header="Тип файла" length="255"/>
+      <prop name="Data"           type="string"   header="Данные" />
+    </class>
+    <!--Архив изображений-->
+    <class name="MImg" header="Архив изображений" baseid="MEDMIdObj">
+      <prop name="Ref"            type="ref"      header="Архив НТИ" refid="MArt" reftype="cascade" />
+      <prop name="Type"           type="string"   header="Тип файла" length="255"/>
+      <prop name="Data"           type="string"   header="Данные" />
+    </class>
+    <!--Рубрикатор-->
+    <class name="MRubricator" header="Рубрикатор" baseid="MEDMIdObj">
+      <prop name="Parent"         type="ref"      header="Родительский узел" refid="MRubricator" reftype="cascade" />
+      <prop name="Code"           type="string"   header="Код" length="255"/>
+      <prop name="Header"         type="string"   header="Наименование" />
+    </class>
+    <!--Рубрики статьи НТИ-->
+    <class name="MArt2Rubricaror" header="" baseid="MEDMIdObj">
+      <prop name="Rubricator"     type="ref"      header="Рубрикатор" refid="MRubricator" reftype="cascade" />
+      <prop name="Art"            type="ref"      header="Статья НТИ" refid="MArt" reftype="cascade" />
+    </class>
+    <!--Архив переводов-->
+    <class name="MTrans" header="Архив переводов" baseid="MEDMIdObj">
+      <prop name="Text"           type="string"   header="Текст" />
+      <prop name="TransDate"      type="date"     header="Дата перевода"/>
+      <prop name="TrasUser"       type="ref"      header="Переводчик" refid="MUser" reftype="restrict" />
+      <prop name="IsReady"        type="bool"     header="Готово"/>
+      <prop name="IsAuto"         type="bool"     header="Автоматический перевод"/>
+    </class>
+    <!--Справочник языков-->
+    <class name="MLang" header="Справочник языков" baseid="MEDMIdObj">
+      <prop name="Code"           type="string"   header="Код" length="255"/>
+      <prop name="Header"         type="string"   header="Наименование" />
+    </class>
+    <!--Справочник пользователей-->
+    <class name="MUser" header="Справочник языков" baseid="MEDMIdObj">
+      <prop name="Login"          type="string"   header="Логин" length="255"/>
+      <prop name="Fio"            type="string"   header="ФИО" />
+      <prop name="IsAdmin"        type="bool"     header="Администратор"/>
+      <prop name="IsEditor"       type="bool"     header="Разрешена правка статей"/>
+      <prop name="IsModerator"    type="bool"     header="Разрешена правка и перевод чужих статей"/>
+      <prop name="IsREditor"      type="bool"     header="Разрешена правка справочников "/>
+      <prop name="IsTranslator"   type="bool"     header="Разрешен паревод"/>
+      <prop name="IsFinder"       type="bool"     header="Разрешен мониторинг"/>
+      <prop name="IsViewer"       type="bool"     header="Разрешен просмотр"/>
+      <prop Name="PassCode"       header="Код" type="int"></prop>
+      <prop name="IsDismiss"     type="bool"     header="Уволен"/>
+    </class>
+  </classes>
+
+</project>

@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  mbuilder3x:
+    image: mbuilder3x
+    build:
+      context: ./MBuilder3X
+      dockerfile: Dockerfile
